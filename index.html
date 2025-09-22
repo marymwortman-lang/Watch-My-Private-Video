@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch My Private Video</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-bg: #1a1a1a;
+      --secondary-bg: #282828;
+      --text-color: #e0e0e0;
+      --accent-color: #e50914; /* A common video platform accent color */
+      --border-radius: 8px;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-color);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--secondary-bg) 0%, #000 100%);
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://imgur.com/HPo5I3d.png') no-repeat center center; /* Original banner image as a subtle background */
+      background-size: cover;
+      opacity: 0.15; /* Make it very subtle */
+      filter: blur(2px);
+      z-index: 1;
+    }
+
+    header h1 {
+      position: relative;
+      z-index: 2;
+      font-size: 3.5rem;
+      color: #fff;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.6);
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      position: relative;
+      z-index: 2;
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 10px;
+    }
+
+    main {
+      padding: 30px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .ads {
+      margin: 30px auto;
+      padding: 20px;
+      background: var(--secondary-bg);
+      border-radius: var(--border-radius);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .video-item {
+      background: var(--secondary-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative; /* For play icon positioning */
+    }
+
+    .video-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+    }
+
+    .video-thumbnail {
+      width: 100%;
+      height: 200px; /* Fixed height for consistent look */
+      object-fit: cover;
+      display: block;
+      border-bottom: 2px solid var(--accent-color);
+    }
+
+    .video-title {
+      padding: 15px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-color);
+      text-align: left;
+    }
+
+    .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.4);
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-item.playing .play-overlay {
+        opacity: 0; /* Hide overlay when playing */
+    }
+
+    .play-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--accent-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease;
+    }
+
+    .play-icon::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 20px solid #fff;
+      margin-left: 5px;
+    }
+
+    .play-icon:hover {
+      transform: scale(1.05);
+    }
+
+    video {
+      width: 100%;
+      max-height: 400px; /* Max height for embedded player */
+      display: none; /* Hide video by default, show on play */
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+    }
+
+    .video-item.playing video {
+        display: block; /* Show video when playing */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Watch My Private Video</h1>
+    <p class="subtitle">Exclusive content just for you.</p>
+  </header>
+
+  <main>
+    <!-- Ads Section (kept original scripts) -->
+    <section class="ads">
+      <script type='text/javascript' src='//remarkillustration.com/9c/48/a3/9c48a30da51b20fb7807a34b64893742.js'></script>
+      <script async="async" data-cfasync="false" src="//remarkillustration.com/b3c5e99a6122208e1be8ab74fa97feca/invoke.js"></script>
+      <div id="container-b3c5e99a6122208e1be8ab74fa97feca"></div>
+    </section>
+
+    <!-- Video Grid Section -->
+    <section class="video-grid">
+      <!-- Video Item 1 -->
+      <div class="video-item" data-video-url="https://imgur.com/6MrfXFp.mp4">
+        <div class="play-overlay">
+          <div class="play-icon"></div>
+        </div>
+        <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+1+Thumbnail" alt="Video Thumbnail 1" class="video-thumbnail">
+        <video controls>
+          <source src="https://imgur.com/6MrfXFp.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-title">Exclusive Clip 1</div>
+      </div>
+
+      <!-- Video Item 2 -->
+      <div class="video-item" data-video-url="https://imgur.com/sWDZQ3e.mp4">
+        <div class="play-overlay">
+          <div class="play-icon"></div>
+        </div>
+        <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+2+Thumbnail" alt="Video Thumbnail 2" class="video-thumbnail">
+        <video controls>
+          <source src="https://imgur.com/sWDZQ3e.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-title">Behind the Scenes</div>
+      </div>
+
+      <!-- Video Item 3 -->
+      <div class="video-item" data-video-url="https://imgur.com/GdSoWUi.mp4">
+        <div class="play-overlay">
+          <div class="play-icon"></div>
+        </div>
+        <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+3+Thumbnail" alt="Video Thumbnail 3" class="video-thumbnail">
+        <video controls>
+          <source src="https://imgur.com/GdSoWUi.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-title">Special Moment</div>
+      </div>
+
+      <!-- Video Item 4 -->
+      <div class="video-item" data-video-url="https://imgur.com/Z4Y5Sq4.mp4">
+        <div class="play-overlay">
+          <div class="play-icon"></div>
+        </div>
+        <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+4+Thumbnail" alt="Video Thumbnail 4" class="video-thumbnail">
+        <video controls>
+          <source src="https://imgur.com/Z4Y5Sq4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-title">Unique Perspective</div>
+      </div>
+
+      <!-- Video Item 5 -->
+      <div class="video-item" data-video-url="https://imgur.com/HakN4AE.mp4">
+        <div class="play-overlay">
+          <div class="play-icon"></div>
+        </div>
+        <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+5+Thumbnail" alt="Video Thumbnail 5" class="video-thumbnail">
+        <video controls>
+          <source src="https://imgur.com/HakN4AE.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-title">Intimate Footage</div>
+      </div>
+
+      <!-- Video Item 6 -->
+      <div class="video-item" data-video-url="https://imgur.com/tQEL0Pf.mp4">
+        <div class="play-overlay">
+          <div class="play-icon"></div>
+        </div>
+        <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+6+Thumbnail" alt="Video Thumbnail 6" class="video-thumbnail">
+        <video controls>
+          <source src="https://imgur.com/tQEL0Pf.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-title">Raw & Uncut</div>
+      </div>
+
+      <!-- Video Item 7 -->
+      <div class="video-item" data-video-url="https://imgur.com/PnhIw1b.mp4">
+        <div class="play-overlay">
+          <div class="play-icon"></div>
+        </div>
+        <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+7+Thumbnail" alt="Video Thumbnail 7" class="video-thumbnail">
+        <video controls>
+          <source src="https://imgur.com/PnhIw1b.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-title">Personal Views</div>
+      </div>
+
+      <!-- Video Item 8 -->
+      <div class="video-item" data-video-url="https://imgur.com/59Q4kbW.mp4">
+        <div class="play-overlay">
+          <div class="play-icon"></div>
+        </div>
+        <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+8+Thumbnail" alt="Video Thumbnail 8" class="video-thumbnail">
+        <video controls>
+          <source src="https://imgur.com/59Q4kbW.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-title">My Private Moments</div>
+      </div>
+
+      <!-- NEW Video Item 9 -->
+      <div class="video-item" data-video-url="https://imgur.com/7suvyOB">
+        <div class="play-overlay">
+          <div class="play-icon"></div>
+        </div>
+        <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=New+Video+9+Thumbnail" alt="New Video Thumbnail 9" class="video-thumbnail">
+        <video controls>
+          <source src="https://imgur.com/7suvyOB" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-title">New Entry 1</div>
+      </div>
+
+      <!-- NEW Video Item 10 -->
+      <div class="video-item" data-video-url="https://imgur.com/LwSTIzT">
+        <div class="play-overlay">
+          <div class="play-icon"></div>
+        </div>
+        <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=New+Video+10+Thumbnail" alt="New Video Thumbnail 10" class="video-thumbnail">
+        <video controls>
+          <source src="https://imgur.com/LwSTIzT" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-title">Latest Discovery</div>
+      </div>
+
+      <!-- NEW Video Item 11 -->
+      <div class="video-item" data-video-url="https://imgur.com/ZFSiEax">
+        <div class="play-overlay">
+          <div class="play-icon"></div>
+        </div>
+        <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=New+Video+11+Thumbnail" alt="New Video Thumbnail 11" class="video-thumbnail">
+        <video controls>
+          <source src="https://imgur.com/ZFSiEax" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-title">Unseen Footage</div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Script: Prevent multiple videos from playing together and handle thumbnail click -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const videoItems = document.querySelectorAll(".video-item");
+
+      videoItems.forEach(item => {
+        const video = item.querySelector("video");
+        const playOverlay = item.querySelector(".play-overlay");
+        const thumbnail = item.querySelector(".video-thumbnail");
+
+        // Event listener for the play overlay (clicking anywhere on the item's visible area)
+        playOverlay.addEventListener("click", () => {
+          // Pause all other videos
+          videoItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              const otherVideo = otherItem.querySelector("video");
+              if (!otherVideo.paused) {
+                otherVideo.pause();
+                otherItem.classList.remove('playing');
+              }
+            }
+          });
+
+          // Toggle play/pause for the clicked video
+          if (video.paused) {
+            video.play();
+            item.classList.add('playing');
+            video.focus(); // Give focus to the video player for controls
+          } else {
+            video.pause();
+            item.classList.remove('playing');
+          }
+        });
+
+        // Listen for video ending to reset the item state
+        video.addEventListener('ended', () => {
+            item.classList.remove('playing');
+            video.load(); // Reload video to show poster/first frame
+        });
+
+        // Listen for video pausing (e.g., user clicks pause button)
+        video.addEventListener('pause', () => {
+            if (!video.ended) { // Only remove 'playing' if not ended
+                item.classList.remove('playing');
+            }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
