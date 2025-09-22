@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Watch My Private Video</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph Meta Tags for Link Previews -->
+  <meta property="og:title" content="Watch My Private Video - Exclusive Content" />
+  <meta property="og:description" content="Access an exclusive collection of private videos. Don't miss out!" />
+  <meta property="og:image" content="https://i.imgur.com/HPo5I3d.png" /> <!-- Direct image link for banner preview -->
+  <meta property="og:url" content="YOUR_PAGE_URL_HERE" /> <!-- IMPORTANT: Replace with your actual page URL -->
+  <meta property="og:type" content="video.other" />
+  <!-- Optional: If you want a specific video to be the main OG video -->
+  <!-- <meta property="og:video:url" content="https://i.imgur.com/6MrfXFp.mp4" /> -->
+  <!-- <meta property="og:video:secure_url" content="https://i.imgur.com/6MrfXFp.mp4" /> -->
+  <!-- <meta property="og:video:type" content="video/mp4" /> -->
+  <!-- <meta property="og:video:width" content="1280" /> -->
+  <!-- <meta property="og:video:height" content="720" /> -->
+
+  <!-- Twitter Card Meta Tags (for Twitter-specific previews) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Watch My Private Video - Exclusive Content">
+  <meta name="twitter:description" content="Access an exclusive collection of private videos. Don't miss out!">
+  <meta name="twitter:image" content="https://i.imgur.com/HPo5I3d.png"> <!-- Direct image link for banner preview -->
+
   <style>
     :root {
       --primary-bg: #1a1a1a;
@@ -21,10 +41,13 @@
       color: var(--text-color);
       text-align: center;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased; /* Better font rendering on some devices */
+      -moz-osx-font-smoothing: grayscale;
     }
 
     header {
-      background: linear-gradient(135deg, var(--secondary-bg) 0%, #000 100%);
+      /* Removed gradient background to make the image stand out more */
+      background: #000; /* Solid background if image doesn't cover */
       padding: 60px 20px;
       position: relative;
       overflow: hidden;
@@ -37,10 +60,11 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('https://imgur.com/HPo5I3d.png') no-repeat center center; /* Original banner image as a subtle background */
+      background: url('https://i.imgur.com/HPo5I3d.png') no-repeat center center; /* Direct image link for banner background */
       background-size: cover;
-      opacity: 0.15; /* Make it very subtle */
-      filter: blur(2px);
+      /* REMOVED BLUR AND OPACITY for a clear image */
+      opacity: 1; /* Ensure full visibility */
+      filter: none; /* Ensure no blur */
       z-index: 1;
     }
 
@@ -169,16 +193,45 @@
         display: block; /* Show video when playing */
     }
 
-    /* Responsive adjustments */
+    /* Responsive adjustments for mobile view */
     @media (max-width: 768px) {
+      header {
+        padding: 40px 15px; /* Slightly less padding on mobile */
+      }
       header h1 {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Smaller font for title on mobile */
       }
       .subtitle {
-        font-size: 1rem;
+        font-size: 1rem; /* Smaller subtitle on mobile */
+      }
+      main {
+        padding: 20px 15px; /* Adjust main content padding */
       }
       .video-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column layout on small screens */
+        gap: 20px; /* Slightly less gap between videos */
+      }
+      .video-thumbnail {
+        height: 180px; /* Adjust thumbnail height for mobile */
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem; /* Even smaller font for very small screens */
+      }
+      .subtitle {
+        font-size: 0.9rem;
+      }
+      .play-icon {
+        width: 50px;
+        height: 50px;
+      }
+      .play-icon::before {
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 16px solid #fff;
+        margin-left: 4px;
       }
     }
   </style>
@@ -202,143 +255,143 @@
     <!-- Video Grid Section -->
     <section class="video-grid">
       <!-- Video Item 1 -->
-      <div class="video-item" data-video-url="https://imgur.com/6MrfXFp.mp4">
+      <div class="video-item" data-video-url="https://i.imgur.com/6MrfXFp.mp4">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
         <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+1+Thumbnail" alt="Video Thumbnail 1" class="video-thumbnail">
         <video controls>
-          <source src="https://imgur.com/6MrfXFp.mp4" type="video/mp4">
+          <source src="https://i.imgur.com/6MrfXFp.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-title">Exclusive Clip 1</div>
       </div>
 
       <!-- Video Item 2 -->
-      <div class="video-item" data-video-url="https://imgur.com/sWDZQ3e.mp4">
+      <div class="video-item" data-video-url="https://i.imgur.com/sWDZQ3e.mp4">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
         <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+2+Thumbnail" alt="Video Thumbnail 2" class="video-thumbnail">
         <video controls>
-          <source src="https://imgur.com/sWDZQ3e.mp4" type="video/mp4">
+          <source src="https://i.imgur.com/sWDZQ3e.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-title">Behind the Scenes</div>
       </div>
 
       <!-- Video Item 3 -->
-      <div class="video-item" data-video-url="https://imgur.com/GdSoWUi.mp4">
+      <div class="video-item" data-video-url="https://i.imgur.com/GdSoWUi.mp4">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
         <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+3+Thumbnail" alt="Video Thumbnail 3" class="video-thumbnail">
         <video controls>
-          <source src="https://imgur.com/GdSoWUi.mp4" type="video/mp4">
+          <source src="https://i.imgur.com/GdSoWUi.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-title">Special Moment</div>
       </div>
 
       <!-- Video Item 4 -->
-      <div class="video-item" data-video-url="https://imgur.com/Z4Y5Sq4.mp4">
+      <div class="video-item" data-video-url="https://i.imgur.com/Z4Y5Sq4.mp4">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
         <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+4+Thumbnail" alt="Video Thumbnail 4" class="video-thumbnail">
         <video controls>
-          <source src="https://imgur.com/Z4Y5Sq4.mp4" type="video/mp4">
+          <source src="https://i.imgur.com/Z4Y5Sq4.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-title">Unique Perspective</div>
       </div>
 
       <!-- Video Item 5 -->
-      <div class="video-item" data-video-url="https://imgur.com/HakN4AE.mp4">
+      <div class="video-item" data-video-url="https://i.imgur.com/HakN4AE.mp4">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
         <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+5+Thumbnail" alt="Video Thumbnail 5" class="video-thumbnail">
         <video controls>
-          <source src="https://imgur.com/HakN4AE.mp4" type="video/mp4">
+          <source src="https://i.imgur.com/HakN4AE.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-title">Intimate Footage</div>
       </div>
 
       <!-- Video Item 6 -->
-      <div class="video-item" data-video-url="https://imgur.com/tQEL0Pf.mp4">
+      <div class="video-item" data-video-url="https://i.imgur.com/tQEL0Pf.mp4">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
         <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+6+Thumbnail" alt="Video Thumbnail 6" class="video-thumbnail">
         <video controls>
-          <source src="https://imgur.com/tQEL0Pf.mp4" type="video/mp4">
+          <source src="https://i.imgur.com/tQEL0Pf.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-title">Raw & Uncut</div>
       </div>
 
       <!-- Video Item 7 -->
-      <div class="video-item" data-video-url="https://imgur.com/PnhIw1b.mp4">
+      <div class="video-item" data-video-url="https://i.imgur.com/PnhIw1b.mp4">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
         <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+7+Thumbnail" alt="Video Thumbnail 7" class="video-thumbnail">
         <video controls>
-          <source src="https://imgur.com/PnhIw1b.mp4" type="video/mp4">
+          <source src="https://i.imgur.com/PnhIw1b.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-title">Personal Views</div>
       </div>
 
       <!-- Video Item 8 -->
-      <div class="video-item" data-video-url="https://imgur.com/59Q4kbW.mp4">
+      <div class="video-item" data-video-url="https://i.imgur.com/59Q4kbW.mp4">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
         <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=Video+8+Thumbnail" alt="Video Thumbnail 8" class="video-thumbnail">
         <video controls>
-          <source src="https://imgur.com/59Q4kbW.mp4" type="video/mp4">
+          <source src="https://i.imgur.com/59Q4kbW.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-title">My Private Moments</div>
       </div>
 
-      <!-- NEW Video Item 9 -->
-      <div class="video-item" data-video-url="https://imgur.com/7suvyOB">
+      <!-- NEW Video Item 9 - Direct link assumed -->
+      <div class="video-item" data-video-url="https://i.imgur.com/7suvyOB.mp4">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
         <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=New+Video+9+Thumbnail" alt="New Video Thumbnail 9" class="video-thumbnail">
         <video controls>
-          <source src="https://imgur.com/7suvyOB" type="video/mp4">
+          <source src="https://i.imgur.com/7suvyOB.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-title">New Entry 1</div>
       </div>
 
-      <!-- NEW Video Item 10 -->
-      <div class="video-item" data-video-url="https://imgur.com/LwSTIzT">
+      <!-- NEW Video Item 10 - Direct link assumed -->
+      <div class="video-item" data-video-url="https://i.imgur.com/LwSTIzT.mp4">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
         <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=New+Video+10+Thumbnail" alt="New Video Thumbnail 10" class="video-thumbnail">
         <video controls>
-          <source src="https://imgur.com/LwSTIzT" type="video/mp4">
+          <source src="https://i.imgur.com/LwSTIzT.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-title">Latest Discovery</div>
       </div>
 
-      <!-- NEW Video Item 11 -->
-      <div class="video-item" data-video-url="https://imgur.com/ZFSiEax">
+      <!-- NEW Video Item 11 - Direct link assumed -->
+      <div class="video-item" data-video-url="https://i.imgur.com/ZFSiEax.mp4">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
         <img src="https://via.placeholder.com/640x360/E50914/FFFFFF?text=New+Video+11+Thumbnail" alt="New Video Thumbnail 11" class="video-thumbnail">
         <video controls>
-          <source src="https://imgur.com/ZFSiEax" type="video/mp4">
+          <source src="https://i.imgur.com/ZFSiEax.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-title">Unseen Footage</div>
@@ -355,7 +408,7 @@
       videoItems.forEach(item => {
         const video = item.querySelector("video");
         const playOverlay = item.querySelector(".play-overlay");
-        const thumbnail = item.querySelector(".video-thumbnail");
+        // const thumbnail = item.querySelector(".video-thumbnail"); // Not directly used in the event listener now
 
         // Event listener for the play overlay (clicking anywhere on the item's visible area)
         playOverlay.addEventListener("click", () => {
